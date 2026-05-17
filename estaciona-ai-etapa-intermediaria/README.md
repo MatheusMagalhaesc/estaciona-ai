@@ -32,3 +32,5 @@ entrega-intermediaria
 
 ## Deploy
 Projeto preparado para deploy e publicação.
+
+Projeto atualizado com integração da API ViaCEP.
