@@ -17,10 +17,15 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependências
-        run: pip install -r estaciona-ai-etapa-intermediaria/requirements.txt
+        run: |
+          pip install -r estaciona-ai-etapa-intermediaria/requirements.txt
+          pip install pytest requests ruff
+
+      - name: Ajustar PYTHONPATH
+        run: echo "PYTHONPATH=$GITHUB_WORKSPACE/estaciona-ai-etapa-intermediaria" >> $GITHUB_ENV
 
       - name: Rodar lint
         run: ruff check estaciona-ai-etapa-intermediaria
 
       - name: Rodar testes
-        run: pytest estaciona-ai-etapa-intermediaria
+        run: pytest estaciona-ai-etapa-intermediaria/tests
